@@ -1,0 +1,17 @@
+
+workflows:
+  ios:
+    name: iOS build
+    max_build_duration: 120
+    triggers:
+      - git:
+          branch: master
+    ios:
+      xcworkspace: SensoryBridgeApp.xcworkspace  # Adjust this if using .xcodeproj
+      scheme: SensoryBridgeApp  # Match this to the scheme in your Xcode project
+      device: iphone  # or ipad if it's a tablet app
+      flutter: false  # Set to true if you use Flutter
+      cocoapods: true  # Ensure CocoaPods dependencies are installed
+    environment:
+      vars:
+        FLUTTER_ROOT: "$HOME/flutter"
